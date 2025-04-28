@@ -17,7 +17,7 @@ function EditTourPage() {
     useEffect(() => {
         async function fetchTour() {
             try {
-                const response = await axios.get(`http://localhost:5000/api/tours/${id}`);
+                const response = await axios.get(`https://tourism-website-3g45.onrender.com/api/tours/${id}`);
                 setFormData(response.data);
             } catch (error) {
                 console.error("Error fetching tour:", error);
@@ -35,7 +35,7 @@ function EditTourPage() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/tours/${id}`, formData);
+            await axios.put(`https://tourism-website-3g45.onrender.com/api/tours/${id}`, formData);
             navigate(`/tour/${id}`);
         } catch (error) {
             console.error("Error updating tour:", error);

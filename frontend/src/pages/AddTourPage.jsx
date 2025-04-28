@@ -24,7 +24,7 @@ function AddTourPage() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/tours", formData);
+            await axios.post("https://tourism-website-3g45.onrender.com/api/tours", formData);
             navigate("/");
         } catch (error) {
             console.error("Error adding tour:", error);

@@ -10,7 +10,7 @@ function ToursPage() {
   useEffect(() => {
     async function fetchTours() {
       try {
-        const response = await axios.get("http://localhost:5000/api/tours");
+        const response = await axios.get("https://tourism-website-3g45.onrender.com/api/tours");
         setTours(response.data);
       } catch (error) {
         console.error("Error fetching tours:", error);
