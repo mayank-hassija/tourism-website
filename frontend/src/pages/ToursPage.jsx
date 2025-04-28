@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../App.css"; // Make sure to import styling
+import "../App.css";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function ToursPage() {
   const [tours, setTours] = useState([]);
@@ -10,7 +12,7 @@ function ToursPage() {
   useEffect(() => {
     async function fetchTours() {
       try {
-        const response = await axios.get("https://tourism-website-3g45.onrender.com/api/tours");
+        const response = await axios.get(`${API_URL}/api/tours`);
         setTours(response.data);
       } catch (error) {
         console.error("Error fetching tours:", error);
@@ -20,6 +22,17 @@ function ToursPage() {
     }
     fetchTours();
   }, []);
+
+  async function handleDelete(id) {
+    if (window.confirm("Are you sure you want to delete this tour?")) {
+      try {
+        await axios.delete(`${API_URL}/api/tours/${id}`);
+        setTours(tours.filter((tour) => tour._id !== id));
+      } catch (error) {
+        console.error("Error deleting tour:", error);
+      }
+    }
+  }
 
   if (loading) {
     return <p className="loading">Loading tours...</p>;
@@ -38,7 +51,7 @@ function ToursPage() {
                 {tour.title}
               </Link>
             </h2>
-            <p>{tour.description.length > 100 ? tour.description.slice(0, 100) + "..." : tour.description}</p>
+            <p>{tour.description.length > 100 ? `${tour.description.slice(0, 100)}...` : tour.description}</p>
             <p><strong>Location:</strong> {tour.location}</p>
             <p><strong>Price:</strong> ${tour.price}</p>
 
@@ -47,17 +60,8 @@ function ToursPage() {
                 Edit
               </Link>
               <button
-                onClick={async () => {
-                  if (window.confirm("Are you sure you want to delete this tour?")) {
-                    try {
-                      await axios.delete(`https://tourism-website-3g45.onrender.com/api/tours/${tour._id}`);
-                      setTours(tours.filter((t) => t._id !== tour._id));
-                    } catch (error) {
-                      console.error("Error deleting tour:", error);
-                    }
-                  }
-                }}
-                style={{ backgroundColor: "#dc3545" }}
+                onClick={() => handleDelete(tour._id)}
+                style={{ backgroundColor: "#dc3545", color: "white", border: "none", padding: "5px 10px", cursor: "pointer" }}
               >
                 Delete
               </button>
@@ -66,10 +70,9 @@ function ToursPage() {
         ))
       )}
 
-      {/* Add Tour Link at bottom */}
       <div style={{ textAlign: "center", marginTop: "30px" }}>
         <Link to="/add-tour">
-          <button>Add New Tour</button>
+          <button style={{ padding: "10px 20px", fontSize: "16px" }}>Add New Tour</button>
         </Link>
       </div>
     </div>
