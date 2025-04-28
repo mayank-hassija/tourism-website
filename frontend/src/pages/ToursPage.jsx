@@ -50,7 +50,7 @@ function ToursPage() {
                 onClick={async () => {
                   if (window.confirm("Are you sure you want to delete this tour?")) {
                     try {
-                      await axios.delete(`http://localhost:5000/api/tours/${tour._id}`);
+                      await axios.delete(`https://tourism-website-3g45.onrender.com/api/tours/${tour._id}`);
                       setTours(tours.filter((t) => t._id !== tour._id));
                     } catch (error) {
                       console.error("Error deleting tour:", error);
