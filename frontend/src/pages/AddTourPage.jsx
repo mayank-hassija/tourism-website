@@ -31,6 +31,7 @@ function AddTourPage() {
         <textarea name="description" placeholder="Description" value={tour.description} onChange={handleChange} required />
         <input type="text" name="location" placeholder="Location" value={tour.location} onChange={handleChange} required />
         <input type="number" name="price" placeholder="Price" value={tour.price} onChange={handleChange} required />
+        <input type="text" name="image" placeholder="Image URL" value={tour.image} onChange={handleChange}/>
         <button type="submit">Add Tour</button>
       </form>
     </div>
