@@ -1,11 +1,17 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const tourSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  location: { type: String, required: true },
-  price: { type: Number, required: true },
-  image: { type: String },  // Add this line for storing image filename or URL
+  title: {
+    type: String,
+    required: true
+  },
+  description: String,
+  price: {
+    type: Number,
+    required: true
+  }
 });
 
-module.exports = mongoose.model('Tour', tourSchema);
+const Tour = mongoose.model('Tour', tourSchema);
+
+export default Tour;
