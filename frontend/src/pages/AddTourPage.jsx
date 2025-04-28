@@ -1,39 +1,36 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function AddTourPage() {
+  const [tour, setTour] = useState({ title: "", description: "", location: "", price: "" });
   const navigate = useNavigate();
-  const [tour, setTour] = useState({
-    title: "",
-    description: "",
-    location: "",
-    price: "",
-  });
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setTour(prev => ({ ...prev, [name]: value }));
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post("https://tourism-website-3g45.onrender.com/api/tours", tour);
+      await axios.post(`${API_URL}/api/tours`, tour);
       navigate("/");
     } catch (error) {
       console.error("Error adding tour:", error);
     }
   }
 
+  function handleChange(e) {
+    setTour({ ...tour, [e.target.name]: e.target.value });
+  }
+
   return (
     <div className="container">
       <h1>Add New Tour</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="title" value={tour.title} onChange={handleChange} placeholder="Title" required />
-        <textarea name="description" value={tour.description} onChange={handleChange} placeholder="Description" required />
-        <input type="text" name="location" value={tour.location} onChange={handleChange} placeholder="Location" required />
-        <input type="number" name="price" value={tour.price} onChange={handleChange} placeholder="Price" required />
+      <form onSubmit={handleSubmit} className="form">
+        <input type="text" name="title" placeholder="Title" value={tour.title} onChange={handleChange} required />
+        <textarea name="description" placeholder="Description" value={tour.description} onChange={handleChange} required />
+        <input type="text" name="location" placeholder="Location" value={tour.location} onChange={handleChange} required />
+        <input type="number" name="price" placeholder="Price" value={tour.price} onChange={handleChange} required />
         <button type="submit">Add Tour</button>
       </form>
     </div>
