@@ -46,6 +46,13 @@ function ToursPage() {
       ) : (
         tours.map((tour) => (
           <div key={tour._id} className="tour-card">
+            {tour.image && (
+    <img
+      src={tour.image}
+      alt={tour.title}
+      style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "8px" }}
+    />
+  )}
             <h2>
               <Link to={`/tour/${tour._id}`} style={{ color: "#007bff" }}>
                 {tour.title}
