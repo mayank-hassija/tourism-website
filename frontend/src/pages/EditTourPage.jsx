@@ -1,114 +1,56 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function EditTourPage() {
-    const { id } = useParams();
-    const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        title: "",
-        description: "",
-        location: "",
-        price: "",
-        image: ""
-    });
-    const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const [tour, setTour] = useState({
+    title: "",
+    description: "",
+    location: "",
+    price: "",
+  });
 
-    useEffect(() => {
-        async function fetchTour() {
-            try {
-                const response = await axios.get(`https://tourism-website-3g45.onrender.com/api/tours/${id}`);
-                setFormData(response.data);
-            } catch (error) {
-                console.error("Error fetching tour:", error);
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchTour();
-    }, [id]);
-
-    function handleChange(e) {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+  useEffect(() => {
+    async function fetchTour() {
+      try {
+        const response = await axios.get(`https://tourism-website-3g45.onrender.com/api/tours/${id}`);
+        setTour(response.data);
+      } catch (error) {
+        console.error("Error fetching tour:", error);
+      }
     }
+    fetchTour();
+  }, [id]);
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        try {
-            await axios.put(`https://tourism-website-3g45.onrender.com/api/tours/${id}`, formData);
-            navigate(`/tour/${id}`);
-        } catch (error) {
-            console.error("Error updating tour:", error);
-        }
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setTour(prev => ({ ...prev, [name]: value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await axios.put(`https://tourism-website-3g45.onrender.com/api/tours/${id}`, tour);
+      navigate("/");
+    } catch (error) {
+      console.error("Error updating tour:", error);
     }
+  }
 
-    if (loading) {
-        return <p>Loading tour details...</p>;
-    }
-
-    return (
-        <div style={{ maxWidth: "500px", margin: "0 auto", padding: "20px" }}>
-            <h1>Edit Tour</h1>
-            <form onSubmit={handleSubmit}>
-                <div style={{ marginBottom: "10px" }}>
-                    <input
-                        type="text"
-                        name="title"
-                        placeholder="Title"
-                        value={formData.title}
-                        onChange={handleChange}
-                        required
-                        style={{ width: "100%", padding: "8px" }}
-                    />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                    <textarea
-                        name="description"
-                        placeholder="Description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                        style={{ width: "100%", padding: "8px", height: "100px" }}
-                    />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                    <input
-                        type="text"
-                        name="location"
-                        placeholder="Location"
-                        value={formData.location}
-                        onChange={handleChange}
-                        required
-                        style={{ width: "100%", padding: "8px" }}
-                    />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                    <input
-                        type="number"
-                        name="price"
-                        placeholder="Price"
-                        value={formData.price}
-                        onChange={handleChange}
-                        required
-                        style={{ width: "100%", padding: "8px" }}
-                    />
-                </div>
-                <div style={{ marginBottom: "10px" }}>
-                    <input
-                        type="text"
-                        name="image"
-                        placeholder="Image URL (optional)"
-                        value={formData.image}
-                        onChange={handleChange}
-                        style={{ width: "100%", padding: "8px" }}
-                    />
-                </div>
-                <button type="submit" style={{ padding: "10px 20px" }}>
-                    Update Tour
-                </button>
-            </form>
-        </div>
-    );
+  return (
+    <div className="container">
+      <h1>Edit Tour</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="title" value={tour.title} onChange={handleChange} placeholder="Title" required />
+        <textarea name="description" value={tour.description} onChange={handleChange} placeholder="Description" required />
+        <input type="text" name="location" value={tour.location} onChange={handleChange} placeholder="Location" required />
+        <input type="number" name="price" value={tour.price} onChange={handleChange} placeholder="Price" required />
+        <button type="submit">Update Tour</button>
+      </form>
+    </div>
+  );
 }
 
 export default EditTourPage;
