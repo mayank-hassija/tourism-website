@@ -1,78 +1,43 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AddTourPage() {
-    const [formData, setFormData] = useState({
-        title: "",
-        description: "",
-        location: "",
-        price: "",
-        image: ""
-    });
+  const navigate = useNavigate();
+  const [tour, setTour] = useState({
+    title: "",
+    description: "",
+    location: "",
+    price: "",
+  });
 
-    const navigate = useNavigate();
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setTour(prev => ({ ...prev, [name]: value }));
+  }
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value.trimStart()
-        }));
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      await axios.post("https://tourism-website-3g45.onrender.com/api/tours", tour);
+      navigate("/");
+    } catch (error) {
+      console.error("Error adding tour:", error);
     }
+  }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        try {
-            await axios.post("https://tourism-website-3g45.onrender.com/api/tours", formData);
-            navigate("/");
-        } catch (error) {
-            console.error("Error adding tour:", error);
-        }
-    }
-
-    return (
-        <div style={{ maxWidth: "500px", margin: "0 auto", padding: "20px" }}>
-            <h1>Add New Tour</h1>
-            <form onSubmit={handleSubmit}>
-                {["title", "description", "location", "price", "image"].map((field) => (
-                    <div key={field} style={{ marginBottom: "10px" }}>
-                        {field === "description" ? (
-                            <textarea
-                                name={field}
-                                placeholder={capitalize(field)}
-                                value={formData[field]}
-                                onChange={handleChange}
-                                required={field !== "image"}
-                                style={{ width: "100%", padding: "8px", height: "100px" }}
-                            />
-                        ) : (
-                            <input
-                                type={field === "price" ? "number" : "text"}
-                                name={field}
-                                placeholder={
-                                    field === "image"
-                                        ? "Image URL (optional)"
-                                        : capitalize(field)
-                                }
-                                value={formData[field]}
-                                onChange={handleChange}
-                                required={field !== "image"}
-                                style={{ width: "100%", padding: "8px" }}
-                            />
-                        )}
-                    </div>
-                ))}
-                <button type="submit" style={{ padding: "10px 20px" }}>
-                    Add Tour
-                </button>
-            </form>
-        </div>
-    );
-}
-
-function capitalize(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+  return (
+    <div className="container">
+      <h1>Add New Tour</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="title" value={tour.title} onChange={handleChange} placeholder="Title" required />
+        <textarea name="description" value={tour.description} onChange={handleChange} placeholder="Description" required />
+        <input type="text" name="location" value={tour.location} onChange={handleChange} placeholder="Location" required />
+        <input type="number" name="price" value={tour.price} onChange={handleChange} placeholder="Price" required />
+        <button type="submit">Add Tour</button>
+      </form>
+    </div>
+  );
 }
 
 export default AddTourPage;
