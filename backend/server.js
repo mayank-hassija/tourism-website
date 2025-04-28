@@ -16,7 +16,8 @@ app.use(express.json());
 app.use('/api/tours', tourRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI, {
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://mayankhassija:mh050504@cluster0.1d9idks.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -28,5 +29,4 @@ const PORT = process.env.PORT || 5000;
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
