@@ -103,9 +103,6 @@ npm run dev
 
 📸 Screenshots
 
-> Add screenshots here or update the image link if it's broken:
-
-
 
 ![Homepage Screenshot](https://github.com/user-attachments/assets/307d68ce-2146-42e5-90cb-c455b2ca3bea)
 
