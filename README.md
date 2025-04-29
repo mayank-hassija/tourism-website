@@ -1,30 +1,44 @@
-# 🌍 Tourism Website
+## 🌍 Tourism Website
 
 A full-stack **Tourism Management Website** built with **React**, **Express.js**, and **MongoDB**.  
-Users can view tours, add new tours, edit existing ones, and delete them.
+Users can view, add, edit, and delete tours.
 
-## 🚀 Features
-- View list of available tours
-- View detailed information of a specific tour
-- Add a new tour
-- Edit existing tour details
-- Delete a tour
-- Responsive and clean UI
+---
 
-## 🛠️ Tech Stack
-- **Frontend**: React, Axios, React Router
-- **Backend**: Express.js, MongoDB, Mongoose
-- **Deployment**: (To be added after deployment)
+### 🚀 Features
+- 🧭 Browse all available tours  
+- 🔍 View detailed information on each tour  
+- ➕ Add a new tour  
+- ✏️ Edit existing tour details  
+- ❌ Delete a tour  
+- 📱 Responsive and clean UI  
 
-## 📂 Project Structure
+---
+
+### 🛠️ Tech Stack
+- **Frontend**: React, Vite, Axios, React Router DOM  
+- **Backend**: Express.js, MongoDB, Mongoose  
+- **Deployment**: [Render.com](https://render.com) (Frontend & Backend)
+
+---
+
+### 🌐 Live Demo
+
+- **Frontend**: https://frontend-dvwq.onrender.com/
+- **Backend API**: https://tourism-website-3g45.onrender.com/
+
+> ⚠️ Replace with actual deployed URLs
+
+---
+
+### 📂 Project Structure
 ```
 /frontend
   ├── public/
   ├── src/
-      ├── components/
       ├── pages/
       ├── App.jsx
-      ├── index.jsx
+      ├── main.jsx
 /backend
   ├── models/
       ├── Tour.js
@@ -33,68 +47,72 @@ Users can view tours, add new tours, edit existing ones, and delete them.
   ├── server.js
 ```
 
-## ⚙️ Setup Instructions
+---
 
-### 1. Clone the repository
+### ⚙️ Setup Instructions
+
+#### 1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/tourism-website.git
 cd tourism-website
 ```
 
-### 2. Install dependencies
+#### 2. Install dependencies
 
-- For **backend**:
-  ```bash
-  cd backend
-  npm install
-  ```
-- For **frontend**:
-  ```bash
-  cd frontend
-  npm install
-  ```
+Backend:
+```bash
+cd backend
+npm install
+```
 
-### 3. Configure Environment Variables
-Create a `.env` file inside the `backend/` folder:
+Frontend:
+```bash
+cd ../frontend
+npm install
+```
+
+#### 3. Configure Environment Variables
+
+In `backend/.env`:
 ```
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 ```
 
-### 4. Run the project locally
-- Start backend:
-  ```bash
-  npm start
-  ```
-- Start frontend:
-  ```bash
-  npm run dev
-  ```
+In `frontend/.env` (optional if you want to use env vars for API URL):
+```
+VITE_API_URL=https://your-backend.onrender.com/api
+```
 
-### 5. Open in Browser
-Frontend:  
-`http://localhost:5173/`
+#### 4. Run locally
 
-Backend API:  
-`http://localhost:5000/api/tours`
+Backend:
+```bash
+npm start
+```
 
----
-
-## ✨ Future Improvements
-- User Authentication (Login/Signup)
-- Booking system
-- Better UI design
-- Admin dashboard for managing tours
+Frontend:
+```bash
+npm run dev
+```
 
 ---
 
-## 📸 Screenshots
-
-(Add screenshots here after deployment.)
+### ✨ Future Improvements
+- 🔐 User Authentication
+- 📅 Tour Booking System
+- 🧑‍💼 Admin Dashboard
+- 🎨 Enhanced UI/UX
 
 ---
 
-## 🧑‍💻 Author
-- Mayank Hassija (https://github.com/mayank-hassija)
+### 📸 Screenshots
+*(Add screenshots after deployment)*
+
+---
+
+### 👨‍💻 Author
+- **Mayank Hassija**  
+  [GitHub: mayank-hassija](https://github.com/mayank-hassija)
 
 ---
