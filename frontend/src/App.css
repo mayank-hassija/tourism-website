@@ -1,5 +1,3 @@
-/* frontend/src/App.css */
-
 /* Reset default browser styles */
 * {
   margin: 0;
@@ -10,8 +8,8 @@
 /* Base body styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: #343541; /* Dark ChatGPT background */
+  color: #d1d5db; /* Light gray text */
   line-height: 1.6;
 }
 
@@ -26,55 +24,58 @@ body {
 h1,
 h2,
 h3 {
-  color: #222;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 /* Buttons */
 button {
-  background-color: #007bff;
+  background-color: #10a37f; /* ChatGPT green */
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #0e8f70;
 }
 
 /* Links */
 a {
-  color: #007bff;
+  color: #58a6ff;
   text-decoration: none;
   font-weight: 500;
 }
 
 a:hover {
+  color: #91caff;
   text-decoration: underline;
 }
 
 /* Tour card container */
 .tour-card {
-  background: #fff;
+  background: #444654; /* Slightly lighter dark */
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Tour image */
 .tour-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 5px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
   margin-bottom: 15px;
   display: block;
 }
-
 
 /* Form inputs and textareas */
 form input,
@@ -82,13 +83,15 @@ form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #3a3b45;
+  color: #e5e7eb;
+  border: 1px solid #555;
+  border-radius: 6px;
 }
 
 form input:focus,
 form textarea:focus {
-  border-color: #007bff;
+  border-color: #10a37f;
   outline: none;
 }
 
@@ -98,5 +101,5 @@ form textarea:focus {
   text-align: center;
   padding: 40px;
   font-size: 18px;
-  color: #666;
+  color: #aaa;
 }
