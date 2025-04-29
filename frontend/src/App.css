@@ -28,37 +28,52 @@ h3 {
   margin-bottom: 10px;
 }
 
-/* Buttons */
+/* Tour title links */
+.tour-title-link {
+  color: #17a2b8;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.tour-title-link:hover {
+  color: #5bc0de;
+}
+
+/* Buttons - base */
 button {
-  background-color: #10a37f; /* ChatGPT green */
+  background-color: #10a37f; /* Default green */
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 8px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
-/* Specific styles */
+/* Specific button variants */
 .button-edit {
-  background-color: #17a2b8; /* light blue */
-  color: white;
+  background-color: #5bc0de;
+}
+
+.button-edit:hover {
+  background-color: #31b0d5;
 }
 
 .button-delete {
   background-color: #dc3545;
-  color: white;
+}
+
+.button-delete:hover {
+  background-color: #c82333;
 }
 
 .button-add {
   background-color: #00b894;
-  color: white;
 }
 
-button:hover {
-  background-color: #0e8f70;
+.button-add:hover {
+  background-color: #009975;
 }
 
 /* Links */
