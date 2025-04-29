@@ -53,10 +53,14 @@ function ToursPage() {
         tours.map((tour) => (
           <div key={tour._id} className="tour-card">
             <h2>
-              <Link to={`/tour/${tour._id}`} style={{ color: "#007bff" }}>
-                {tour.title}
-              </Link>
-            </h2>
+  <Link
+    to={`/tour/${tour._id}`}
+    style={{ color: "#17a2b8", textDecoration: "underline" }}
+  >
+    {tour.title}
+  </Link>
+</h2>
+
 
             {tour.image && (
               <img src={tour.image} alt={tour.title} className="tour-image" />
