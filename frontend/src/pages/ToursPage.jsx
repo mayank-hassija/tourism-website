@@ -64,9 +64,8 @@ function ToursPage() {
               <img src={tour.image} alt={tour.title} className="tour-image" />
             )}
 
-            <p>{tour.description?.length > 100 ? tour.description.slice(0, 100) + "..." : tour.description}</p>
-            <p><strong>Location:</strong> {tour.location}</p>
-            <p><strong>Price:</strong> ${tour.price}</p>
+            {/* Description, location, and price are hidden on homepage */}
+
 
             <div style={{ marginTop: "10px" }}>
               <Link to={`/edit-tour/${tour._id}`} style={{ marginRight: "15px", color: "green" }}>
