@@ -27,8 +27,6 @@ Users can view, add, edit, and delete tours.
 - **Frontend**: https://frontend-dvwq.onrender.com/
 - **Backend API**: https://tourism-website-3g45.onrender.com/
 
-> ⚠️ Replace with actual deployed URLs
-
 ---
 
 ### 📂 Project Structure
@@ -107,7 +105,8 @@ npm run dev
 ---
 
 ### 📸 Screenshots
-*(Add screenshots after deployment)*
+
+![image](https://github.com/user-attachments/assets/307d68ce-2146-42e5-90cb-c455b2ca3bea)
 
 ---
 
