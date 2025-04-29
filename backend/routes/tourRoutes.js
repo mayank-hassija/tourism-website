@@ -52,6 +52,26 @@ router.get('/:id', async (req, res) => {
 });
 
 /**
+ * @route   PUT /api/tours/:id
+ * @desc    Update a tour by ID
+ * @access  Public
+ */
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedTour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
+      new: true, // return the updated doc
+      runValidators: true, // validate before saving
+    });
+    if (!updatedTour) {
+      return res.status(404).json({ message: 'Tour not found' });
+    }
+    res.json(updatedTour);
+  } catch (err) {
+    res.status(400).json({ message: 'Error updating tour', error: err.message });
+  }
+});
+
+/**
  * @route   DELETE /api/tours/:id
  * @desc    Delete a tour by ID
  * @access  Public
