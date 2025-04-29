@@ -35,6 +35,23 @@ router.post('/', async (req, res) => {
 });
 
 /**
+ * @route   GET /api/tours/:id
+ * @desc    Fetch a single tour by ID
+ * @access  Public
+ */
+router.get('/:id', async (req, res) => {
+  try {
+    const tour = await Tour.findById(req.params.id);
+    if (!tour) {
+      return res.status(404).json({ message: 'Tour not found' });
+    }
+    res.json(tour);
+  } catch (err) {
+    res.status(500).json({ message: 'Server Error', error: err.message });
+  }
+});
+
+/**
  * @route   DELETE /api/tours/:id
  * @desc    Delete a tour by ID
  * @access  Public
