@@ -1,16 +1,12 @@
-// frontend/src/pages/AddTourPage.jsx
-
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
-// Backend API base URL from environment variable
+// Correct Vite way to use env variable
 const API_URL = import.meta.env.VITE_API_URL;
 
-
 function AddTourPage() {
-  // Form state for the new tour
   const [tour, setTour] = useState({
     title: "",
     description: "",
@@ -21,18 +17,16 @@ function AddTourPage() {
 
   const navigate = useNavigate();
 
-  // Handle form submission
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       await axios.post(`${API_URL}/api/tours`, tour);
-      navigate("/"); // Navigate back to tours list after success
+      navigate("/");
     } catch (error) {
       console.error("Error adding tour:", error);
     }
   }
 
-  // Handle input changes
   function handleChange(e) {
     setTour({ ...tour, [e.target.name]: e.target.value });
   }
