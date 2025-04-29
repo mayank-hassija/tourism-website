@@ -53,7 +53,7 @@ function TourDetailsPage() {
         />
       )}
 
-      <p style={{ fontSize: "18px", marginBottom: "20px", color: "#555" }}>
+      <p style={{ fontSize: "18px", marginBottom: "20px", color: "#d1d5db" }}>
         {tour.description}
       </p>
 
