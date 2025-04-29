@@ -1,32 +1,47 @@
+// backend/server.js
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import tourRoutes from './routes/tourRoutes.js';
 import dotenv from 'dotenv';
+import tourRoutes from './routes/tourRoutes.js';
 
+// Load environment variables from .env
 dotenv.config();
 
 const app = express();
 
-// Middlewares
-app.use(cors());
-app.use(express.json());
+// === Middleware ===
+app.use(cors());              // Enable Cross-Origin Resource Sharing
+app.use(express.json());      // Parse incoming JSON requests
 
-// Routes
+// === Routes ===
 app.use('/api/tours', tourRoutes);
 
-// MongoDB Connection
-const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://mayankhassija:mh050504@cluster0.1d9idks.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// === MongoDB Connection ===
+const MONGO_URI = process.env.MONGO_URI;
+if (!MONGO_URI) {
+  console.error('❌ MONGO_URI not set in environment variables.');
+  process.exit(1);
+}
+
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1);
+  });
 
-// Start Server
-const PORT = process.env.PORT || 5000;
+// === Default Route (Health Check) ===
 app.get('/', (req, res) => {
-  res.send('API is running...');
+  res.send('🌍 Tourism API is running...');
 });
-app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
+
+// === Start Server ===
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, '0.0.0.0', () =>
+  console.log(`🚀 Server running on http://localhost:${PORT}`)
+);
