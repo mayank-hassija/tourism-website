@@ -19,7 +19,8 @@ app.use(express.json());      // Parse incoming JSON requests
 app.use('/api/tours', tourRoutes);
 
 // === MongoDB Connection ===
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://mayankhassija:mh050504@cluster0.asdfg.mongodb.net/tourDB?retryWrites=true&w=majority';
+
 if (!MONGO_URI) {
   console.error('❌ MONGO_URI not set in environment variables.');
   process.exit(1);
