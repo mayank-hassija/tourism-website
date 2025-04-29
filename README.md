@@ -38,13 +38,7 @@ Deployment: Hosted on Render
 
 🌐 Live Demo
 
-> Note: Replace with your actual deployed URLs if these are incorrect or placeholders.
-
-
-
-Frontend: Live Site
-
-Backend API: API Endpoint
+> frontend-dvwq.onrender.com/
 
 
 
