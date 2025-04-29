@@ -1,7 +1,9 @@
+// frontend/src/pages/ToursPage.jsx
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "../App.css"; // Make sure to import your styling
+import "../App.css"; // Global styles
 
 function ToursPage() {
   const [tours, setTours] = useState([]);
@@ -16,9 +18,8 @@ function ToursPage() {
           setTours(response.data);
         } else {
           console.error("Tours API did not return an array:", response.data);
-          setTours([]); // fallback so app does not crash
+          setTours([]);
         }
-
       } catch (error) {
         console.error("Error fetching tours:", error);
       } finally {
@@ -58,6 +59,11 @@ function ToursPage() {
                 {tour.title}
               </Link>
             </h2>
+
+            {tour.image && (
+              <img src={tour.image} alt={tour.title} className="tour-image" />
+            )}
+
             <p>{tour.description?.length > 100 ? tour.description.slice(0, 100) + "..." : tour.description}</p>
             <p><strong>Location:</strong> {tour.location}</p>
             <p><strong>Price:</strong> ${tour.price}</p>
@@ -68,7 +74,14 @@ function ToursPage() {
               </Link>
               <button
                 onClick={() => deleteTour(tour._id)}
-                style={{ backgroundColor: "#dc3545", color: "white", border: "none", padding: "8px 12px", cursor: "pointer" }}
+                style={{
+                  backgroundColor: "#dc3545",
+                  color: "white",
+                  border: "none",
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  cursor: "pointer"
+                }}
               >
                 Delete
               </button>
