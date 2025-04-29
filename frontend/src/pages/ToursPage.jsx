@@ -53,26 +53,26 @@ function ToursPage() {
         tours.map((tour) => (
           <div key={tour._id} className="tour-card">
             <h2>
-  <Link
-    to={`/tour/${tour._id}`}
-    style={{ color: "#17a2b8", textDecoration: "underline" }}
-  >
-    {tour.title}
-  </Link>
-</h2>
-
+              <Link
+                to={`/tour/${tour._id}`}
+                style={{
+                  color: "#17a2b8",
+                  textDecoration: "underline"
+                }}
+              >
+                {tour.title}
+              </Link>
+            </h2>
 
             {tour.image && (
               <img src={tour.image} alt={tour.title} className="tour-image" />
             )}
 
-            {/* Description, location, and price are hidden on homepage */}
-
             <div style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
               <Link to={`/edit-tour/${tour._id}`}>
                 <button
                   style={{
-                    backgroundColor: "#5bc0de",
+                    backgroundColor: "#5bc0de", // Light blue
                     color: "white",
                     border: "none",
                     padding: "8px 12px",
@@ -104,7 +104,17 @@ function ToursPage() {
 
       <div style={{ textAlign: "center", marginTop: "30px" }}>
         <Link to="/add-tour">
-          <button style={{ padding: "10px 20px", fontSize: "16px", cursor: "pointer" }}>
+          <button
+            style={{
+              backgroundColor: "#00b386", // Match theme
+              color: "#fff",
+              padding: "10px 20px",
+              fontSize: "16px",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer"
+            }}
+          >
             Add New Tour
           </button>
         </Link>
