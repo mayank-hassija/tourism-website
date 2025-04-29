@@ -1,17 +1,19 @@
-# Ignore backend dependencies
+# 💡 Node.js dependencies
 backend/node_modules/
-
-# Ignore frontend dependencies
 frontend/node_modules/
 
-# Ignore build folders
+# 🚫 Build outputs
 frontend/dist/
 backend/dist/
 
-# Ignore env files
+# 🔐 Environment variables (keep secrets out of version control)
 backend/.env
 frontend/.env
 
-# General
-.DS_Store
-*.log
+# 🧹 System & editor clutter
+.DS_Store         # macOS file system metadata
+*.log             # Log files (e.g., npm-debug.log)
+*.env.*.local     # Optional local override envs
+
+# 📦 Vite cache (optional, but can speed up clean clones)
+frontend/.vite/
