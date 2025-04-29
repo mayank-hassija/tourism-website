@@ -70,11 +70,11 @@ a:hover {
 .tour-image {
   width: 100%;
   height: auto;
-  max-height: 200px;
-  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 15px;
+  display: block;
 }
+
 
 /* Form inputs and textareas */
 form input,
