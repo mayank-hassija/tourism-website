@@ -1,117 +1,151 @@
-## 🌍 Tourism Website
+🌍 Tourism Website
 
-A full-stack **Tourism Management Website** built with **React**, **Express.js**, and **MongoDB**.  
-Users can view, add, edit, and delete tours.
+A full-stack Tourism Management Website built with React, Express.js, and MongoDB.
+Users can view, add, edit, and delete tour listings.
 
----
-
-### 🚀 Features
-- 🧭 Browse all available tours  
-- 🔍 View detailed information on each tour  
-- ➕ Add a new tour  
-- ✏️ Edit existing tour details  
-- ❌ Delete a tour  
-- 📱 Responsive and clean UI  
 
 ---
 
-### 🛠️ Tech Stack
-- **Frontend**: React, Vite, Axios, React Router DOM  
-- **Backend**: Express.js, MongoDB, Mongoose  
-- **Deployment**: [Render.com](https://render.com) (Frontend & Backend)
+🚀 Features
+
+🧭 Browse all available tours
+
+🔍 View detailed information on each tour
+
+➕ Add a new tour
+
+✏️ Edit existing tour details
+
+❌ Delete a tour
+
+📱 Responsive and clean UI
+
+
 
 ---
 
-### 🌐 Live Demo
+🛠️ Tech Stack
 
-- **Frontend**: https://frontend-dvwq.onrender.com/
-- **Backend API**: https://tourism-website-3g45.onrender.com/
+Frontend: React, Vite, Axios, React Router DOM
 
----
+Backend: Express.js, MongoDB, Mongoose
 
-### 📂 Project Structure
-```
-/frontend
-  ├── public/
-  ├── src/
-      ├── pages/
-      ├── App.jsx
-      ├── main.jsx
-/backend
-  ├── models/
-      ├── Tour.js
-  ├── routes/
-      ├── tourRoutes.js
-  ├── server.js
-```
+Deployment: Hosted on Render
+
+
 
 ---
 
-### ⚙️ Setup Instructions
+🌐 Live Demo
 
-#### 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/tourism-website.git
+> Note: Replace with your actual deployed URLs if these are incorrect or placeholders.
+
+
+
+Frontend: Live Site
+
+Backend API: API Endpoint
+
+
+
+---
+
+📂 Project Structure
+
+tourism-website/
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── vite.config.js
+├── backend/
+│   ├── models/
+│   │   └── Tour.js
+│   ├── routes/
+│   │   └── tourRoutes.js
+│   ├── server.js
+│   └── package.json
+
+
+---
+
+⚙️ Setup Instructions
+
+1. Clone the repository
+
+git clone https://github.com/mayank-hassija/tourism-website.git
 cd tourism-website
-```
 
-#### 2. Install dependencies
+2. Install dependencies
 
 Backend:
-```bash
+
 cd backend
 npm install
-```
 
 Frontend:
-```bash
+
 cd ../frontend
 npm install
-```
 
-#### 3. Configure Environment Variables
+3. Configure Environment Variables
 
-In `backend/.env`:
-```
+Create a .env file in the backend/ directory:
+
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
-```
 
-In `frontend/.env` (optional if you want to use env vars for API URL):
-```
+Optional: In frontend/.env:
+
 VITE_API_URL=https://your-backend.onrender.com/api
-```
 
-#### 4. Run locally
+4. Run locally
 
 Backend:
-```bash
+
+cd backend
 npm start
-```
 
 Frontend:
-```bash
+
+cd frontend
 npm run dev
-```
+
 
 ---
 
-### ✨ Future Improvements
-- 🔐 User Authentication
-- 📅 Tour Booking System
-- 🧑‍💼 Admin Dashboard
-- 🎨 Enhanced UI/UX
+✨ Future Improvements
+
+🔐 User Authentication
+
+📅 Tour Booking System
+
+🧑‍💼 Admin Dashboard
+
+🎨 Enhanced UI/UX
+
+
 
 ---
 
-### 📸 Screenshots
+📸 Screenshots
 
-![image](https://github.com/user-attachments/assets/307d68ce-2146-42e5-90cb-c455b2ca3bea)
+> Add screenshots here or update the image link if it's broken:
+
+
+
+![Homepage Screenshot](https://github.com/user-attachments/assets/307d68ce-2146-42e5-90cb-c455b2ca3bea)
+
 
 ---
 
-### 👨‍💻 Author
-- **Mayank Hassija**  
-  [GitHub: mayank-hassija](https://github.com/mayank-hassija)
+👨‍💻 Author
+
+Mayank Hassija
+GitHub: mayank-hassija
+
+
 
 ---
