@@ -42,27 +42,6 @@ https://frontend-dvwq.onrender.com/
 
 ---
 
-📂 Project Structure
-
-tourism-website/
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── vite.config.js
-├── backend/
-│   ├── models/
-│   │   └── Tour.js
-│   ├── routes/
-│   │   └── tourRoutes.js
-│   ├── server.js
-│   └── package.json
-
-
----
-
 ⚙️ Setup Instructions
 
 1. Clone the repository
