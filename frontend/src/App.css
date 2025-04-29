@@ -89,7 +89,7 @@ a:hover {
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 5px;
   margin-bottom: 15px;
   display: block;
 }
