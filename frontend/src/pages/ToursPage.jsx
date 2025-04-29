@@ -1,5 +1,3 @@
-// frontend/src/pages/ToursPage.jsx
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -66,15 +64,26 @@ function ToursPage() {
 
             {/* Description, location, and price are hidden on homepage */}
 
-
-            <div style={{ marginTop: "10px" }}>
-              <Link to={`/edit-tour/${tour._id}`} style={{ marginRight: "15px", color: "green" }}>
-                Edit
+            <div style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
+              <Link to={`/edit-tour/${tour._id}`}>
+                <button
+                  style={{
+                    backgroundColor: "#5bc0de",
+                    color: "white",
+                    border: "none",
+                    padding: "8px 12px",
+                    borderRadius: "4px",
+                    cursor: "pointer"
+                  }}
+                >
+                  Edit
+                </button>
               </Link>
+
               <button
                 onClick={() => deleteTour(tour._id)}
                 style={{
-                  backgroundColor: "#dc3545",
+                  backgroundColor: "#dc3545", // Red
                   color: "white",
                   border: "none",
                   padding: "8px 12px",
