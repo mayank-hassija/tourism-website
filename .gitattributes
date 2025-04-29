@@ -1,2 +1,13 @@
-# Auto detect text files and perform LF normalization
+# 🔄 Normalize line endings to LF in text files (cross-platform compatibility)
 * text=auto
+
+# Optional: Ensure certain file types are treated as binary (prevent diffing)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+
+# Optional: Set custom rules for specific file types
+*.sh text eol=lf   # Shell scripts use LF line endings
+*.bat text eol=crlf # Windows batch files use CRLF
