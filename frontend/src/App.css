@@ -35,9 +35,26 @@ button {
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
+}
+
+/* Specific styles */
+.button-edit {
+  background-color: #17a2b8; /* light blue */
+  color: white;
+}
+
+.button-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.button-add {
+  background-color: #00b894;
+  color: white;
 }
 
 button:hover {
