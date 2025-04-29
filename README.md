@@ -38,7 +38,7 @@ Deployment: Hosted on Render
 
 🌐 Live Demo
 
-> frontend-dvwq.onrender.com/
+frontend-dvwq.onrender.com/
 
 
 
