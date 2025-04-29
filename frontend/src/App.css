@@ -1,3 +1,5 @@
+/* frontend/src/App.css */
+
 /* Reset default browser styles */
 * {
   margin: 0;
@@ -5,7 +7,7 @@
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* Base body styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f5f7fa;
@@ -13,7 +15,7 @@ body {
   line-height: 1.6;
 }
 
-/* Container around the app */
+/* Layout container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -55,7 +57,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Tour card */
+/* Tour card container */
 .tour-card {
   background: #fff;
   padding: 20px;
@@ -74,7 +76,7 @@ a:hover {
   margin-bottom: 15px;
 }
 
-/* Forms */
+/* Form inputs and textareas */
 form input,
 form textarea {
   width: 100%;
@@ -90,7 +92,7 @@ form textarea:focus {
   outline: none;
 }
 
-/* Loading or No Data */
+/* Loading or no data state */
 .loading,
 .no-data {
   text-align: center;
