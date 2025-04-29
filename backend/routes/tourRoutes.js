@@ -1,36 +1,53 @@
+// backend/routes/tourRoutes.js
+
 import express from 'express';
 import Tour from '../models/Tour.js';
 
 const router = express.Router();
 
-// Get all tours
+/**
+ * @route   GET /api/tours
+ * @desc    Fetch all tours
+ * @access  Public
+ */
 router.get('/', async (req, res) => {
   try {
     const tours = await Tour.find();
     res.json(tours);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: 'Server Error', error: err.message });
   }
 });
 
-// Create a new tour
+/**
+ * @route   POST /api/tours
+ * @desc    Create a new tour
+ * @access  Public
+ */
 router.post('/', async (req, res) => {
   try {
     const newTour = new Tour(req.body);
     await newTour.save();
     res.status(201).json(newTour);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: 'Invalid data', error: err.message });
   }
 });
 
-// Delete a tour
+/**
+ * @route   DELETE /api/tours/:id
+ * @desc    Delete a tour by ID
+ * @access  Public
+ */
 router.delete('/:id', async (req, res) => {
   try {
-    await Tour.findByIdAndDelete(req.params.id);
+    const deleted = await Tour.findByIdAndDelete(req.params.id);
+    if (!deleted) {
+      return res.status(404).json({ message: 'Tour not found' });
+    }
     res.json({ message: 'Tour deleted' });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: 'Server Error', error: err.message });
   }
 });
 
