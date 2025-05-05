@@ -1,3 +1,1 @@
-🌍 Tourism Website
-
-Users can view, add, edit, and delete tour listings.
+Browse, add, edit, and delete tours.
