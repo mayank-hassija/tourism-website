@@ -1,5 +1,3 @@
-// frontend/src/App.jsx
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ToursPage from "./pages/ToursPage";
 import TourDetailsPage from "./pages/TourDetailsPage";
@@ -7,22 +5,32 @@ import AddTourPage from "./pages/AddTourPage";
 import EditTourPage from "./pages/EditTourPage";
 import "./App.css";
 
+// ✅ Simple Navbar component (you can later move it to its own file)
+function Navbar() {
+  return (
+    <nav className="navbar">
+      <div className="logo">🌍 TourExplorer</div>
+      <ul className="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/add-tour">Add Tour</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  );
+}
+
 function App() {
   return (
     <Router>
+      {/* Show navbar on all pages */}
+      <Navbar />
+
       {/* Main App Container with page routing */}
       <div style={{ padding: "20px", paddingTop: "20px" }}>
         <Routes>
-          {/* Home - list of all tours */}
           <Route path="/" element={<ToursPage />} />
-
-          {/* View a specific tour's details */}
           <Route path="/tour/:id" element={<TourDetailsPage />} />
-
-          {/* Add a new tour */}
           <Route path="/add-tour" element={<AddTourPage />} />
-
-          {/* Edit an existing tour */}
           <Route path="/edit-tour/:id" element={<EditTourPage />} />
         </Routes>
       </div>
