@@ -54,24 +54,25 @@ function ToursPage() {
           <div key={tour._id} className="tour-card">
             <div style={{ textAlign: "center" }}>
               <h2>
-                <Link
+<Link
   to={`/tour/${tour._id}`}
   style={{
-    color: '#777',  // Lighter grey for better visibility
+    color: '#dc3545',  // Red color for the text
     textDecoration: 'none',  // No underline by default
-    transition: 'color 0.3s, text-decoration 0.3s'  // Smooth transition for color and underline
+    transition: 'color 0.3s, text-shadow 0.3s'  // Smooth transition for color and shadow
   }}
   onMouseEnter={(e) => {
-    e.target.style.color = '#d3d3d3';  // Lighter grey on hover
-    e.target.style.textDecoration = 'underline';  // Underline on hover
+    e.target.style.color = '#dc3545';  // Keep red on hover
+    e.target.style.textShadow = '0 0 8px black, 0 0 10px black';  // Black highlight around the text
   }}
   onMouseLeave={(e) => {
-    e.target.style.color = '#777';  // Reset to lighter grey on mouse leave
-    e.target.style.textDecoration = 'none';  // Remove underline on mouse leave
+    e.target.style.color = '#dc3545';  // Keep red when mouse leaves
+    e.target.style.textShadow = 'none';  // Remove the shadow when mouse leaves
   }}
 >
   {tour.title}
 </Link>
+
 
               </h2>
             </div>
