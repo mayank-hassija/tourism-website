@@ -53,34 +53,32 @@ function ToursPage() {
         tours.map((tour) => (
           <div key={tour._id} className="tour-card">
             <div style={{ textAlign: "center" }}>
-  <h2>
-    <Link
-      to={`/tour/${tour._id}`}
-      style={{ color: "#17a2b8", textDecoration: "underline" }}
-    >
-      {tour.title}
-    </Link>
-  </h2>
-</div>
-
+              <h2>
+                <Link
+                  to={`/tour/${tour._id}`}
+                  style={{ color: "#17a2b8", textDecoration: "underline" }}
+                >
+                  {tour.title}
+                </Link>
+              </h2>
+            </div>
 
             {tour.image && (
               <img src={tour.image} alt={tour.title} className="tour-image" />
             )}
 
             <div
-  style={{
-    marginTop: "10px",
-    display: "flex",
-    gap: "10px",
-    justifyContent: "center"
-  }}
->
-
+              style={{
+                marginTop: "10px",
+                display: "flex",
+                gap: "10px",
+                justifyContent: "center"
+              }}
+            >
               <Link to={`/edit-tour/${tour._id}`}>
                 <button
                   style={{
-                    backgroundColor: "#5bc0de", // Light blue
+                    backgroundColor: "#5bc0de",
                     color: "white",
                     border: "none",
                     padding: "8px 12px",
@@ -88,6 +86,7 @@ function ToursPage() {
                     cursor: "pointer"
                   }}
                 >
+                  <i className="fas fa-pen-to-square" style={{ marginRight: "6px" }}></i>
                   Edit
                 </button>
               </Link>
@@ -95,7 +94,7 @@ function ToursPage() {
               <button
                 onClick={() => deleteTour(tour._id)}
                 style={{
-                  backgroundColor: "#dc3545", // Red
+                  backgroundColor: "#dc3545",
                   color: "white",
                   border: "none",
                   padding: "8px 12px",
@@ -103,6 +102,7 @@ function ToursPage() {
                   cursor: "pointer"
                 }}
               >
+                <i className="fas fa-trash" style={{ marginRight: "6px" }}></i>
                 Delete
               </button>
             </div>
@@ -114,7 +114,7 @@ function ToursPage() {
         <Link to="/add-tour">
           <button
             style={{
-              backgroundColor: "#00b386", // Match theme
+              backgroundColor: "#00b386",
               color: "#fff",
               padding: "10px 20px",
               fontSize: "16px",
@@ -123,6 +123,7 @@ function ToursPage() {
               cursor: "pointer"
             }}
           >
+            <i className="fas fa-plus-circle" style={{ marginRight: "8px" }}></i>
             Add New Tour
           </button>
         </Link>
