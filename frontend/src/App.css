@@ -30,8 +30,10 @@ h3 {
 
 /* Tour title links */
 .tour-title-link {
-  color: #17a2b8;
+  color: #00bcd4;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
   text-decoration: underline;
+  font-size: 2rem;
   font-weight: 600;
 }
 
