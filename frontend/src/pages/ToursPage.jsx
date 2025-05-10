@@ -56,7 +56,19 @@ function ToursPage() {
               <h2>
                 <Link
                   to={`/tour/${tour._id}`}
-                  style={{ color: "#17a2b8", textDecoration: "underline" }}
+                  style={{
+                    color: '#333',  // Default color
+                    textDecoration: 'none',  // No underline by default
+                    transition: 'color 0.3s, text-decoration 0.3s'  // Smooth transition for color and underline
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = '#d3d3d3';  // Light grey on hover
+                    e.target.style.textDecoration = 'underline';  // Underline on hover
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.color = '#333';  // Reset color on mouse leave
+                    e.target.style.textDecoration = 'none';  // Remove underline on mouse leave
+                  }}
                 >
                   {tour.title}
                 </Link>
